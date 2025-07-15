@@ -1,0 +1,123 @@
+.body, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f6fa;
+}
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 240px;
+    height: 100vh;
+    background: #232946;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.04);
+    z-index: 100;
+}
+
+.sidebar-header {
+    padding: 32px 24px 16px 24px;
+    background: #eebbc3;
+    color: #232946;
+    font-weight: bold;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    text-align: left;
+    flex-shrink: 0;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+    overflow-y: auto;
+    max-height: calc(100vh - 80px); /* Adjust 80px if header height changes */
+}
+
+.sidebar-menu li {
+    padding: 14px 28px;
+    cursor: pointer;
+    display: block;
+    align-items: center;
+    font-size: 1rem;
+    transition: background 0.2s;
+    border-left: 4px solid transparent;
+}
+
+.sidebar-menu li .icon {
+    margin-right: 14px;
+    font-size: 1.2em;
+}
+
+.sidebar-menu li.active, .sidebar-menu li:hover {
+    background: #121629;
+    border-left: 4px solid #eebbc3;
+    color: #eebbc3;
+}
+
+.sidebar-section {
+    padding: 18px 24px 6px 24px;
+    font-size: 0.95em;
+    color: #b8b8b8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: none;
+    cursor: default;
+}
+
+.main-content {
+    margin-left: 240px;
+    padding: 0;
+    min-height: 100vh;
+    background: #f4f6fa;
+}
+
+/* Sidebar Dropdown Styles */
+.sidebar-dropdown {
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    padding: 0;
+}
+.sidebar-dropdown .dropdown-title {
+    font-weight: bold;
+    margin-left: 8px;
+}
+.sidebar-dropdown .dropdown-arrow {
+    margin-left: auto;
+    transition: transform 0.2s;
+    font-size: 1em;
+}
+.sidebar-dropdown.open .dropdown-arrow {
+    transform: rotate(90deg);
+}
+.sidebar-dropdown .sidebar-submenu {
+    display: none;
+    background: #232946;
+    padding-left: 0;
+    margin: 0;
+    list-style: none;
+}
+.sidebar-dropdown.open .sidebar-submenu {
+    display: block;
+}
+.sidebar-dropdown .sidebar-submenu li {
+    padding: 12px 28px 12px 44px;
+    font-size: 1em;
+    color: #b8b8b8;
+    display: flex;
+    align-items: center;
+    border-left: 4px solid transparent;
+    transition: background 0.2s, color 0.2s;
+}
+.sidebar-dropdown .sidebar-submenu li.active,
+.sidebar-dropdown .sidebar-submenu li:hover {
+    color: #eebbc3;
+    background: #121629;
+    border-left: 4px solid #eebbc3;
+}

@@ -1,0 +1,103 @@
+body, .dashboard-container {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f6fa;
+    margin: 0;
+    padding: 0;
+}
+.dashboard-container {
+    padding: 32px 32px 32px 0;
+}
+.dashboard-header {
+    margin-bottom: 24px;
+}
+.dashboard-cards {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+.dashboard-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    display: flex;
+    align-items: center;
+    padding: 24px 32px;
+    min-width: 180px;
+    min-height: 90px;
+    gap: 18px;
+    flex: 1 1 180px;
+}
+.card-icon {
+    font-size: 2.2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #f4f6fa;
+}
+.card-students { color: #4ecca3; }
+.card-employees { color: #f67280; }
+.card-subjects { color: #f9a602; }
+.card-holidays { color: #3a86ff; }
+.card-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.card-value {
+    font-size: 1.7em;
+    font-weight: bold;
+    color: #232946;
+}
+.card-label {
+    font-size: 1em;
+    color: #b8b8b8;
+}
+.dashboard-actions {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+}
+.dashboard-action-btn {
+    background: #fff;
+    color: #232946;
+    border: 1.5px solid #eebbc3;
+    border-radius: 8px;
+    padding: 14px 24px;
+    font-size: 1em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.dashboard-action-btn:hover {
+    background: #eebbc3;
+    color: #232946;
+    border: 1.5px solid #232946;
+}
+.dashboard-charts {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+.dashboard-chart-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    padding: 24px 32px;
+    min-width: 260px;
+    min-height: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.chart-title {
+    font-size: 1.1em;
+    color: #232946;
+    margin-bottom: 18px;
+    font-weight: 500;
+}
