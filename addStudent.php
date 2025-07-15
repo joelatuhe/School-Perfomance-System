@@ -13,7 +13,7 @@
             <div class="form-section">
                 <h3>New Student</h3>
                 <form id="employeeForm" action="db/dbStudent.php" method="POST">
-                    <label>First Name</label><br>
+                    <label>First Names</label><br>
                     <input type="text" id="first-name" name="first_name"><br>
 
                     <label>Last Name</label><br>
