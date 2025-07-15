@@ -157,3 +157,11 @@ th, td {
 .select {
     background-color: #ccc;
 }
+
+/* Make checkbox column smaller */
+table th:first-child, table td:first-child {
+  width: 50px;
+  text-align: center;
+}
+
+

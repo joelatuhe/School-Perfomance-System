@@ -1,9 +1,18 @@
+<?php 
+// Include DB connection
+require_once 'db/connector.php';
+
+// Fetch student records
+$query = "SELECT teacherName, Gender, Telephone FROM teacherresponsible";
+$result = mysqli_query($conn, $query);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Teacher</title>
-    <link rel="stylesheet" href="c/addStudent.css">
+    <link rel="stylesheet" href="css/addStudent.css">
 </head>
 <body>
     <div class="container">
@@ -32,6 +41,53 @@
                     </div>
                 </form>
             </div>
+
+            <!-- RIGHT: TABLE -->
+      <div class="table-section">
+        <div class="top-controls">
+          <label><strong>📋 TEACHER LIST</strong></label>
+          <div>
+            <input type="text" placeholder="Search...">
+            <button class="search">🔍</button>
+          </div>
+        </div>
+
+        <!-- DYNAMIC TABLE -->
+        <table>
+          <thead>
+            <tr>
+              <th>Select</th>
+              <th>Teacher Name</th>
+              <th>Gender</th>
+              <th>Telephone</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php if (mysqli_num_rows($result) > 0): ?>
+              <?php while ($row = mysqli_fetch_assoc($result)): ?>
+                <tr>
+                  <!-- Checkbox with student data -->
+                  <td>
+                    <input type="checkbox" class="row-check"
+                      data-first="<?= htmlspecialchars($row['teacherName']); ?>"
+                      data-last="<?= htmlspecialchars($row['Gender']); ?>"
+                      data-gender="<?= htmlspecialchars($row['Telephone']); ?>"
+                    >
+                  </td>
+                  <td><?= htmlspecialchars($row['teacherName']); ?></td>
+                  <td><?= htmlspecialchars($row['Gender']); ?></td>
+                  <td><?= htmlspecialchars($row['Telephone']); ?></td>
+                </tr>
+              <?php endwhile; ?>
+            <?php else: ?>
+              <tr>
+                <td colspan="5" style="text-align:center;">No records found.</td>
+              </tr>
+            <?php endif; ?>
+          </tbody>
+        </table>
+
+
         </div>
     </div>
 
