@@ -29,7 +29,7 @@
                 <span class="dropdown-title">Marks</span>
                 <span class="dropdown-arrow">&#9654;</span>
                 <ul class="sidebar-submenu">
-                    <li><span class="icon">➕</span> Add Marks</li>
+                    <li id="add-marks-link"><span class="icon">➕</span> Add Marks</li>
                     <li><span class="icon">👁️</span> View Marks</li>
                 </ul>
             </li>
