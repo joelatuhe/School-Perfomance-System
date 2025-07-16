@@ -1,48 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Marks</title>
-    <link rel="stylesheet" href="css/addMarks.css">
+    <meta charset="UTF-8" />
+    <title>Add Marks</title>
+    <link rel="stylesheet" href="css/addMarks.css" />
 </head>
 <body>
     <div class="container">
         <h2 class="header"><span class="icon">📊</span>MARKS ENTRY</h2>
-        <div class="main">
-            <!-- Left: Form -->
-            <div class="form-section">
-                <h3>New Marks Record</h3>
-                <form id="marksForm" action="db/dbMarks.php" method="POST">
-                    <label>Mark ID</label><br>
-                    <input type="number" id="mark-id" name="marksID"><br>
+        <div class="form-section">
+            <h3>New Marks Record</h3>
+            <form id="marksForm" action="db/dbMarks.php" method="POST">
+                <label>Student</label><br />
+                <select id="student-id" name="studentID" required>
+                    <?php
+                    include 'db/connector.php';
+                    $students = mysqli_query($conn, "SELECT studentID, CONCAT(firstname, ' ', lastname) AS fullname FROM studentsdetails");
+                    while ($row = mysqli_fetch_assoc($students)) {
+                        echo "<option value='{$row['studentID']}'>{$row['fullname']}</option>";
+                    }
+                    ?>
+                </select><br />
+                <label>Scores</label><br />
+                <input type="number" id="scores" name="scores" required /><br />
 
-                    <label>Grade</label><br>
-                    <input type="text" id="grade" name="grade" maxlength="2"><br>
+                
 
-                    <label>Scores</label><br>
-                    <input type="number" id="scores" name="scores"><br>
+                <label>Subject</label><br />
+                <select id="subject-id" name="subjectID" required>
+                    <?php
+                    $subjects = mysqli_query($conn, "SELECT subjectID, Subjectname FROM subject");
+                    while ($row = mysqli_fetch_assoc($subjects)) {
+                        echo "<option value='{$row['subjectID']}'>{$row['Subjectname']}</option>";
+                    }
+                    ?>
+                </select><br />
 
-                    <label>Student ID</label><br>
-                    <input type="number" id="student-id" name="studentID"><br>
+                <label>Term</label><br />
+                <select id="term-id" name="termID" required>
+                    <?php
+                    $terms = mysqli_query($conn, "SELECT termID, termName FROM term");
+                    while ($row = mysqli_fetch_assoc($terms)) {
+                        echo "<option value='{$row['termID']}'>{$row['termName']}</option>";
+                    }
+                    ?>
+                </select><br />
 
-                    <label>Subject ID</label><br>
-                    <input type="number" id="subject-id" name="subjectID"><br>
-
-                    <div class="form-buttons">
-                        <button type="submit" class="save">SAVE</button>
-                        <button type="button" class="update">UPDATE</button>
-                        <button type="reset" class="clear">CLEAR</button>
-                    </div>
-                </form>
-            </div>
+                <div class="form-buttons">
+    <button type="submit" name="action" value="save" class="save">SAVE</button>
+    <button type="submit" name="action" value="update" class="update">UPDATE</button>
+    <button type="reset" class="clear">CLEAR</button>
+</div>
+            </form>
         </div>
     </div>
-
-
-    <script src="js/addMarks.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="js/dashboard.js"></script>
-    <script src="js/adminDashboard.js"></script>
 </body>
 </html>

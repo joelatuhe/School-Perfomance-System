@@ -4,10 +4,9 @@ $user = "root";
 $password = "blessing";
 $dbname = "studentperfomance";
 
-$conn = mysqli_connect($host, $user, $password, $dbname);
+$conn = mysqli_connect($host, $user, "", $dbname);
 
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-// The $conn variable can now be used in other files via include/require
 ?>

@@ -30,7 +30,7 @@
                 <span class="dropdown-arrow">&#9654;</span>
                 <ul class="sidebar-submenu">
                     <li id="add-marks-link"><span class="icon">➕</span> Add Marks</li>
-                    <li><span class="icon">👁️</span> View Marks</li>
+                    <li id="view-marks-link"><span class="icon">👁️</span> View Marks</li>
                 </ul>
             </li>
             <li class="sidebar-dropdown" id="attendance-dropdown">
@@ -55,5 +55,22 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/dashboard.js"></script>
     <script src="js/adminDashboard.js"></script>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('view-marks-link')?.addEventListener('click', function (e) {
+        e.preventDefault();
+        fetch('viewMarksContent.php')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('main-content').innerHTML = data;
+            })
+            .catch(error => {
+                console.error("Failed to load view marks:", error);
+            });
+    });
+});
+</script>
+
 </body>
 </html> 
